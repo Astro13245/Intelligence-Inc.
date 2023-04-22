@@ -1,5 +1,8 @@
-import { dollars } from '../../currencys.js';
+import { currencys } from '../../General/currencys.js';
 
+let dollars = currencys.dollars
+
+console.log(dollars)
 let ownedStores = {};
 
 function buyStore(store, startingReward, startingPriceToUpgrade, timeToGetReward, raisePriceBy){
@@ -11,8 +14,8 @@ function buyStore(store, startingReward, startingPriceToUpgrade, timeToGetReward
         level: 1
     };
 
-    document.getElementById('buy' + store).remove();
-    document.getElementById('stuffOf' + store).style.display = 'block';
+    document.querySelector(`#buy ${store}`).remove();
+    document.querySelector(`#thingsOf ${store}`).style.display = 'block';
 }
  
 function upgradeStore(store){
@@ -26,6 +29,6 @@ function upgradeStore(store){
     else {
         alert(`Not enough money, you need ${ownedStores[store].priceToUpgrade - dollars} more to upgrade ${store}`);
     }
-
     
 }
+
