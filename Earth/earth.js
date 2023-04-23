@@ -1,4 +1,6 @@
-import * as Config from '../../Config';
+import * as Config from '../Config.';
+
+let ERP = 0;
 
 const earthStores = {
     'LemonadeStand': {
@@ -9,7 +11,6 @@ const earthStores = {
     }
 }
 
-console.log(dollars)
 let earthOwnedStores = {};
 
 for (const storeName of Object.keys(earthStores)){

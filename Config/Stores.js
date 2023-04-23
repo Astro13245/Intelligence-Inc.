@@ -11,7 +11,7 @@ function buyStore(ownedStores, store, startingReward, startingPriceToUpgrade, ti
     document.querySelector(`#thingsOf ${store}`).style.display = 'block';
 }
  
-function upgradeStore(store, currency){
+function upgradeStore(ownedStores, store, currency){
     if (currency >= ownedStores[store].priceToUpgrade){
         currency -= ownedStores[store].priceToUpgrade;
         ownedStores[store].priceToUpgrade += ownedStores[store].raisePriceBy;
