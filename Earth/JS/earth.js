@@ -1,34 +1,20 @@
-import { currencys } from '../../General/currencys.js';
+import * as Config from '../../Config';
 
-let dollars = currencys.dollars
+const earthStores = {
+    'LemonadeStand': {
+        startingReward: 1,
+        startingPriceToUpgrade: 1,
+        timeToGetReward: 5,
+        raisePriceBy: 1
+    }
+}
 
 console.log(dollars)
-let ownedStores = {};
+let earthOwnedStores = {};
 
-function buyStore(store, startingReward, startingPriceToUpgrade, timeToGetReward, raisePriceBy){
-    ownedStores[store] = {
-        reward: startingReward,
-        priceToUpgrade: startingPriceToUpgrade,
-        timeToGetReward: timeToGetReward,
-        raisePriceBy: raisePriceBy,
-        level: 1
-    };
-
-    document.querySelector(`#buy ${store}`).remove();
-    document.querySelector(`#thingsOf ${store}`).style.display = 'block';
-}
- 
-function upgradeStore(store){
-    if (dollars >= ownedStores[store].priceToUpgrade){
-        dollars -= ownedStores[store].priceToUpgrade;
-        ownedStores[store].priceToUpgrade += ownedStores[store].raisePriceBy;
-        ownedStores[store].level++;
-
-        document.getElementById('upgrade' + store).textContent = ownedStores[store].priceToUpgrade;
+for (const storeName of Object.keys(earthStores)){
+    const store = earthStores[storeName];
+    document.getElementById(`buy${storeName}`).onclick = () => {
+        Config.buyStore(earthOwnedStores, storeName, store.startingReward, store.startingPriceToUpgrade, store.timeToGetReward, store.raisePriceBy);
     }
-    else {
-        alert(`Not enough money, you need ${ownedStores[store].priceToUpgrade - dollars} more to upgrade ${store}`);
-    }
-    
 }
-
