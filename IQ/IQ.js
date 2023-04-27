@@ -1,21 +1,26 @@
 import * as Config from '../Config.';
 
-let ERP = 0;
+let timesProfit = 1;
 
-const earthStores = {
-    'LemonadeStand': {
-        startingReward: 1,
-        startingPriceToUpgrade: 1,
-        timeToGetReward: 5,
-        raisePriceBy: 1
-    }
-}
+let IQRP = 0;
 
-let earthOwnedStores = {};
+let IQ = 0;
+
+let IQROwnedStores = {};
 
 for (const storeName of Object.keys(earthStores)){
     const store = earthStores[storeName];
     document.getElementById(`buy${storeName}`).onclick = () => {
         Config.buyStore(earthOwnedStores, storeName, store.startingReward, store.startingPriceToUpgrade, store.timeToGetReward, store.raisePriceBy);
     }
+}
+
+const upgradeIQ = (upgradeID, addOnToIQ) => {
+    document.getElementById(upgradeID).remove()
+
+    IQ += addOnToIQ;
+}
+
+const x = () => {
+    
 }

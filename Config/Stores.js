@@ -1,4 +1,10 @@
-function buyStore(ownedStores, store, startingReward, startingPriceToUpgrade, timeToGetReward, raisePriceBy){
+function buyStore(currency, ownedStores, store, startingReward, startingPriceToUpgrade, timeToGetReward, raisePriceBy){
+    if (currency >= ownedStores[store].priceToBuy){
+        
+    }
+    else {
+        alert(`Not enough money, you need ${ownedStores[store].priceToUpgrade - currency} more to upgrade ${store}`);
+    }
     ownedStores[store] = {
         reward: startingReward,
         priceToUpgrade: startingPriceToUpgrade,
